@@ -4,4 +4,6 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'^fossee1/', include("fossee1.urls" , namespace="fossee1")),
 
+
+
 ]
