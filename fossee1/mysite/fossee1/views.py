@@ -1,15 +1,22 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from fossee1.models import Caption,Images
+from django.http import HttpResponse,HttpResponseRedirect
+from django.urls import reverse
+
+
 ini =0
 # Create your views here.
-@csrf_exempt
+
 def index(request):
+    return render(request,"fossee1/index.html")
+
+
+@csrf_exempt
+def uploadImage(request):
     if request.method=="POST":
         ini =0
         if ini == 0:
-                i = Images.objects.all()
-                print(i)
                 caption = Caption(
                 title = request.POST.get('title'),
                 description = request.POST.get('description')
@@ -21,4 +28,11 @@ def index(request):
 
         )
         image.save()
-    return render(request,"fossee1/index.html")
+        
+    return render(request,"fossee1/uploadImage.html")
+
+def viewImage(request):
+    print("viewImage")
+    caption = Caption.objects.all()[0]
+    image = Images.objects.all()
+    return render(request,"fossee1/viewImage.html",{"caption":caption,"image":image})

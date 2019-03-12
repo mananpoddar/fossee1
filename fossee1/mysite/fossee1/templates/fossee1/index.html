@@ -1,90 +1,69 @@
-{% load static %}
+{% load staticfiles %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <title>front_page</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<style>
-form input[type=file] {
-	background-image : url({% static 'fossee1/plus.png' %});
-	width : 115px;
-	height :52px;
-	border : none;
-	color : transparent;
-}
-
-</style>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{% static "fossee1/index.css" %}">
+    <script src="{% static "fossee1/topnav.js" %}"></script>
 </head>
-<body style="background-image:url({% static 'fossee1/plus.png' %}); background-repeat: no-repeat">
+<body>
+    <div class="cursive">
+        <br>
+        <div>Hi there ! Welcome to our first ever sharing platform for codes , happy coding nitkians .</div><br>Web Club
+        NITK <br><br>
+        <a href="https://www.facebook.com/web.club.nitk/" class="font"><i class="fa fa-facebook"
+                style="font-size:25px  ; height: 30px; width: 30px;"></i> </a>
 
-    
-<form id= 'file-catcher' action="/fossie/" enctype="multipart/form-data" >
-    {% csrf_token %}
-       
-    <input id = 'title' name="title" type="text"><br><br>
-    <textarea rows="10" cols="50" id = 'description' name="description" type="text">
-    </textarea>    
-        <br><br>
-
-    <input id = 'inputImage' name="image" type="file" multiple/>
-        
-    <br><br><br>
-        <button type="submit">
-            submit
-        </button>
-</form>
-    
-
-</body>
-<script>
-    
-     
-        var inputImage = document.getElementById('inputImage');
-        var fileList = [];
-        
-        inputImage.addEventListener('change',function(e){
-            for(var i =0;i<inputImage.files.length;i++){
-                fileList.push(inputImage.files[i]);
-                console.log('is it adding image');
-            }
-        })
-      
-        var fileCatcher = document.getElementById('file-catcher')
-        fileCatcher.addEventListener('submit',function(e){
-            e.preventDefault();
-            fileList.forEach(function(file){
-                
-                sendFile(file);
-                console.log("sending the files");
-            });
-        });
-        
-        sendFile = function(file){
-           
-            var title       =   document.getElementById('title').value
-            var description =   document.getElementById('description').value
-        
-            var formData = new FormData();
-            formData.append("image",file)
-            formData.append("title",title)
-            formData.append("description",description)
+        <a href="https://github.com/WebClub-NITK" class="font"><i class="fa fa-github"
+                style="font-size:25px  ; height: 30px; width: 30px;"></i></a>
 
 
-          
-            jQuery.ajax({
-                url: "",
-                type: "POST",
-                data:formData,
-                processData: false,
-                contentType: false,
-                success:function(){
-                    console.log("done successfully");
-                }
-            });
-        };
-    
-        </script>
-</html>
+    </div>
+
+    <div class="container" style="text-align: center"> <a href="{% url "fossee1:uploadImage" %}"
+            class="btn btn-primary">go to application</a></div><br><br><br>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#!" onclick="callaboutme()" class="navbar-brand">About application</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li> <a href="#!" class="active" onclick="callhowitstarted()">how it started</a> </li>
+                    <li> <a href="#!" class="dropdown" onclick="callwhywebclub()">why_web_club</a></li>
+                    <li> <a href="#!" onclick="callcontact()">Contact me</a></li>
+                </ul>
+            </div>
+    </nav>
+    <div class="container">
+        <div class="main_content" style="font-family:Amethysta">
+            <div id="demo">
+                <div>About this project <br><br>
+                    This web application is built on the top of django , it allows you to conveniently share your codes
+                    with anyone with just one link !
+                    <div style="text-indent: 1em">It also allows you to manage your shared code so that you can refer
+                        them whenever you need it.I
+                        would really like to know how you feel about the application , to give feedback you can contact
+                        me through contact section. </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <body>
