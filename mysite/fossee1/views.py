@@ -6,12 +6,12 @@ from django.urls import reverse
 
 
 ini =0
-# Create your views here.
 
+#for front page
 def index(request):
     return render(request,"fossee1/index.html")
 
-
+#handle uploading images
 @csrf_exempt
 def uploadImage(request):
     if request.method=="POST":
@@ -31,6 +31,7 @@ def uploadImage(request):
         
     return render(request,"fossee1/uploadImage.html")
 
+#handle rendering images
 def viewImage(request):
     print("viewImage")
     caption = Caption.objects.all()[0]

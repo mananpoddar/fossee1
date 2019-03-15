@@ -7,26 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ title }}</title>
-
   <script src="//use.typekit.net/xyl8bgh.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
   <link rel='stylesheet prefetch' href="{% static 'step/css/__codepen_io_andytran_pen.css' %}">
-  
-        <link rel="stylesheet" href="{% static 'step/css/style.css' %}">
-
-
-	<link rel="icon" href="{% static 'step/second/img/Fevicon.png' %}" type="image/png">
-
+  <link rel="stylesheet" href="{% static 'step/css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static "fossee1/index.css" %}">
+  <link rel="icon" href="{% static 'step/second/img/Fevicon.png' %}" type="image/png">
   <link rel="stylesheet" href="{% static 'step/second/vendors/bootstrap/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'step/second/vendors/fontawesome/css/all.min.css' %}">
   <link rel="stylesheet" href="{% static 'step/second/vendors/themify-icons/themify-icons.css' %}">
   <link rel="stylesheet" href="{% static 'step/second/vendors/linericon/style.css' %}">
   <link rel="stylesheet" href="{% static 'step/second/vendors/owl-carousel/owl.theme.default.min.css' %}">
   <link rel="stylesheet" href="{% static 'step/second/vendors/owl-carousel/owl.carousel.min.css' %}">
-
   <link rel="stylesheet" href="{% static 'step/second/css/style.css' %}">
 </head>
 <body>
@@ -45,9 +39,8 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-center">
-              <li class="nav-item active"><a class="nav-link" href="#">Home</a></li> 
-              <li class="nav-item"><a class="nav-link" href="#">About Us</a></li> 
-              <li class="nav-item"><a class="nav-link" href="#">Contact</a>
+              <li class="nav-item active"><a class="nav-link" href="/fossee1">Home</a></li> 
+              <li class="nav-item"><a class="nav-link" href="/fossee1/uploadImage">Upload Image</a></li> 
             </ul>
           </div> 
         </div>
@@ -55,9 +48,18 @@
     </div>
   </header>
   <!--================Header Menu Area =================-->
+ 
+  <div class="viewImage">
+  <label>Title :</label>
+  {{caption.title}}<br>
+  <label>Description :</label>
+  {{caption.description}}
+ </div>
+
   <section class="blog-post-area section-margin mt-4">
     <div class="container">
-     {% for obj in image %}
+    
+      {% for obj in image %}
             <div class="column">
     
                     <div class="post-module">
