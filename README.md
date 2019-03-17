@@ -5,7 +5,7 @@ Project for IITB summer Internship Entrance
 
 - Clone the repo
 ``` 
-git clone https://github.com/mananpoddar/fossee
+git clone https://github.com/mananpoddar/fossee1
 cd mysite
 ```
 - Create a virtualenv
