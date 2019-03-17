@@ -5,24 +5,26 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
 
 
-ini =0
 
-#for front page
+# argument: request 
+# what it does:renders the front page 
+# returns: returns the front page
 def index(request):
     return render(request,"fossee1/index.html")
 
-#handle uploading images
+# argument: request 
+# what it does:get's the file from user one by one through ajax requests,
+#              saves it in the database.
+# returns: returns the page where user can upload the Images
 @csrf_exempt
 def uploadImage(request):
     if request.method=="POST":
-        ini =0
-        if ini == 0:
-                caption = Caption(
-                title = request.POST.get('title'),
-                description = request.POST.get('description')
-                )
-                caption.save()
-                ini =1
+        
+        caption = Caption(
+        title = request.POST.get('title'),
+        description = request.POST.get('description')
+        )
+        caption.save()
         image = Images(
             image = request.FILES.get('image')
 
@@ -31,7 +33,9 @@ def uploadImage(request):
         
     return render(request,"fossee1/uploadImage.html")
 
-#handle rendering images
+# argument: request 
+# what it does:gets all the documents from the database
+# returns: returns the page rendering all the Images
 def viewImage(request):
     print("viewImage")
     caption = Caption.objects.all()[0]
