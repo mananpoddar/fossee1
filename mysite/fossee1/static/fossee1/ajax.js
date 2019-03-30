@@ -5,13 +5,32 @@ var fileList = [];
 //we keep saving those files in fileList array(even if files are not images, because it's been done in other two similar assignments)
 inputImage.addEventListener("change", function(e) {
   for (var i = 0; i < inputImage.files.length; i++) {
-    fileList.push(inputImage.files[i]);
+   
+    //check if the extension of file is valid
     name = String(inputImage.files[i].name);
-    console.log("is it adding image");
-    var node = document.createElement("LI"); // Create a <li> node
-    var textnode = document.createTextNode(name); // Create a text node
-    node.appendChild(textnode); // Append the text to <li>
-    document.getElementById("displayFile").appendChild(node);
+    var l = name.split(".", 2);
+    var extn = String(l[1]);
+    //if valid sendFile otherwise not
+    if (
+      extn.localeCompare("png") == 0 ||
+      extn.localeCompare("jpg") == 0 ||
+      extn.localeCompare("jpeg") == 0
+    ) {
+      var node = document.createElement("LI"); // Create a <li> node
+      var textnode = document.createTextNode(name); // Create a text node
+      node.appendChild(textnode); // Append the text to <li>
+      document.getElementById("displayFile").appendChild(node);
+      fileList.push(inputImage.files[i]);
+      console.log("sending Document");
+    } else {
+      console.log("it's not a valid extension");
+      var node = document.createElement("LI"); // Create a <li> node
+      var textnode = document.createTextNode(
+        "only png,jpeg,jpg are allowed, please enter file with valid extensions"
+      ); // Create a text node
+      node.appendChild(textnode); // Append the text to <li>
+      document.getElementById("displayFile").appendChild(node);
+    }
   }
 });
 
