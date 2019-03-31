@@ -8,7 +8,7 @@ Please see the demo video on maximum possible volume with Earphones.<br>
 It's an application where user is allowed to upload multiple images<br>
 and refer as and when required.
 
-<b> Setting up the project:
+<b> Setting up the project:</b>
 
 - Clone the repo
 ``` 
@@ -40,7 +40,8 @@ python manage.py runserver
 - request localhost:8000/fossee1
 
 <br><br>
-- Important directories and files to make your look up to the code easier
+
+<b>Important directories and files to make your look up to the code easier:</b>
 ```
 core backend logic - > fossee1/mysite/fossee1/views.py
 core frontend logic - > fossee1/mysite/fossee1/static/fossee1/ajax.js
