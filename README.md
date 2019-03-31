@@ -1,7 +1,14 @@
 # fossee1
 
-Project for IITB summer Internship Entrance
-Please see the demo video on maximum possible volume with Earphones.
+Project for IITB summer Internship Entrance<br>
+Please see the demo video on maximum possible volume with Earphones.<br>
+
+-About the application
+
+It's an application where user is allowed to upload multiple images<br>
+and refer as and when required.
+
+<b> Setting up the project:
 
 - Clone the repo
 ``` 
@@ -42,7 +49,4 @@ routing files - > fossee1/mysite/fossee1/urls.py
 
 ```
 
--About the application
 
-It's an application where user is allowed to upload multiple images<br>
-and refer as and when required.
